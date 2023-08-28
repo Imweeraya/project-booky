@@ -1,7 +1,7 @@
 .container {
     display: flex;
     justify-content: flex-end;
-    background-color: rgb(236, 113, 168); /* Set the background color to pink */
+    background-color: rgb(52, 74, 183);; /* Set the background color to pink */
   }
 
 .btn {
