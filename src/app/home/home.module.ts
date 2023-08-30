@@ -9,6 +9,7 @@ import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { NavBar } from './nav-bar.component';
 import { Footer } from './footer.component';
+import { Bookpage } from './bookpage.component';
 
 
 
@@ -18,7 +19,8 @@ import { Footer } from './footer.component';
     HomeComponent,
     CartSummaryComponent,
     NavBar,
-    Footer
+    Footer,
+    Bookpage
   ],
   exports: [],
 })

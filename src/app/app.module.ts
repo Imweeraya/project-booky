@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { HomeModule } from './home/home.module';
+import { Bookpage } from './home/bookpage.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +15,9 @@ import { HomeModule } from './home/home.module';
     
     RouterModule.forRoot([
     { path: 'booky', component: HomeComponent },
-    { path: '**', redirectTo: '/booky' }
+    {path: 'booky-book' , component: Bookpage},
+    { path: '**', redirectTo: '/booky' },
+    
   ]),
   HomeModule
   ],

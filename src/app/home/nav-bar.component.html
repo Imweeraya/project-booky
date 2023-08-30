@@ -15,11 +15,17 @@
     border-radius: 20px;
 }
 
-.navbar-nav .nav-link.active {
+.navbar-nav .nav-link:hover{
+    transition: 0.5s;
+    background-color: rgb(16, 29, 50);
+    border-radius: 20px; 
+}
+
+/* .navbar-nav .nav-link.active {
     transition: 0.5s;
     background-color: rgb(16, 29, 50);
     border-radius: 20px;
-}
+} */
 
 #logo{
     width: 40px;
@@ -48,28 +54,27 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item me-1 mb-2 mb-lg-0">
-                        <a class="nav-link active" (click)="activeMenu=1" [class.active]="activeMenu===1" href="javascript:void(0)">Home</a>
+                        <a class="nav-link active" 
+                        routerLink="/booky" href="">Home</a>
                     </li>
                     
                     <li class="nav-item me-1 mb-2 mb-lg-0">
-                        <a class="nav-link active" (click)="activeMenu=2" [class.active]="activeMenu===2" href="javascript:void(0)">หนังสือ</a>
+                        <a class="nav-link active"  
+                        routerLink="/booky-book" href="">หนังสือ</a>
                     </li>
 
                     <li class="nav-item  me-1 mb-2 mb-lg-0">
                         <a class="nav-link" 
-                        (click)="activeMenu=3" [class.active]="activeMenu===3"
                         href="javascript:void" >ศิลปะและงานฝีมือ</a>
                     </li>
 
                     <li class="nav-item  me-1 mb-2 mb-lg-0">
                         <a class="nav-link" 
-                        (click)="activeMenu=4" [class.active]="activeMenu===4"
                         href="javascript:void" >ไอที & แก็ตเจ็ต</a>
                     </li>
 
                     <li class="nav-item  me-5 mb-2 mb-lg-0">
                         <a class="nav-link" 
-                        (click)="activeMenu=5" [class.active]="activeMenu===5"
                         href="javascript:void" >ของเล่น & ของขวัญ</a>
                     </li>
 
@@ -90,5 +95,6 @@
           </div>
         </div>
       </nav>
+
 </body>
 </html>

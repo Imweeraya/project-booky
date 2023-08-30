@@ -1,5 +1,4 @@
-
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,13 +7,14 @@ import { Router } from '@angular/router';
 })
 export class NavBar {
 
-  public activeMenu = 1;
-
   constructor(private router: Router) { }
+
 
   changerepository() {
     this.router.navigateByUrl('/booky');
   }
+
+ 
 
 
 }
