@@ -1,8 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head> </head>
+  <head> 
+  </head>
+
+  <style>
+    .promote{
+        font-size: 50px;
+    }
+
+    .promote img{
+        border-radius: 20px;
+        width: 50vw;
+        height: 50vh;
+    }
+
+    .promote i{
+        margin-left: 20px;
+        margin-right: 20px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .promote i:hover{
+        transition: 0.2s;
+        color: rgb(52, 74, 183);
+    }
+  </style>
   <body>
     <nav-bar></nav-bar>
+   
+      <p class="promote text-center my-5">
+        <i (click)="change_img_minus()" class="fa-solid fa-circle-chevron-left"></i>
+        <img src="../assets/img/cat1.jpg" class="image-with-text" *ngIf="current_img==1">
+        <img src="../assets/img/cat2.jpg" class="image-with-text" *ngIf="current_img==2">
+        <img src="../assets/img/cat3.jpg" class="image-with-text" *ngIf="current_img==3">
+        <i (click)="change_img_plus()" class="fa-solid fa-circle-chevron-right" ></i>
+      </p>
+  
+    
     <footer></footer>
    
 
