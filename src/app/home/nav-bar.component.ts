@@ -8,14 +8,13 @@ import { Router } from '@angular/router';
 })
 export class NavBar {
 
-  public activemenu = 1;
+  public activeMenu = 1;
 
   constructor(private router: Router) { }
 
   changerepository() {
     this.router.navigateByUrl('/booky');
   }
-
 
 
 }

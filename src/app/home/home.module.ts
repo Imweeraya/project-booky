@@ -8,6 +8,7 @@ import { HomeComponent } from './home.component';
 
 import { RouterModule } from '@angular/router';
 import { NavBar } from './nav-bar.component';
+import { Footer } from './footer.component';
 
 
 
@@ -16,9 +17,8 @@ import { NavBar } from './nav-bar.component';
   declarations: [
     HomeComponent,
     CartSummaryComponent,
-    NavBar
-
-  
+    NavBar,
+    Footer
   ],
   exports: [],
 })
