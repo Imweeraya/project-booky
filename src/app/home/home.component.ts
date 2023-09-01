@@ -14,7 +14,7 @@ export class HomeComponent {
       if(this.current_img<3){
         this.current_img++
       }else{
-        this.current_img  = 3
+        this.current_img  = 1
       }
     }
 
@@ -22,7 +22,7 @@ export class HomeComponent {
       if(this.current_img>1){
         this.current_img--
       }else{
-        this.current_img  = 1
+        this.current_img  = 3
       }
     }
     

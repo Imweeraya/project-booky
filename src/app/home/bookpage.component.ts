@@ -6,12 +6,10 @@ import { Component } from '@angular/core';
 })
 export class Bookpage {
 
-    constructor() { 
+  genre = "All";
+
+  constructor() { 
     }
-
-
-    
-
 
 
 

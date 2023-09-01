@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { NavBar } from './nav-bar.component';
 import { Footer } from './footer.component';
 import { Bookpage } from './bookpage.component';
+import { Detail } from './detail.component';
 
 
 
@@ -20,7 +21,8 @@ import { Bookpage } from './bookpage.component';
     CartSummaryComponent,
     NavBar,
     Footer,
-    Bookpage
+    Bookpage,
+    Detail
   ],
   exports: [],
 })
