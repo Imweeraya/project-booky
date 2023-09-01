@@ -1,15 +1,155 @@
 <html>
+  <head></head>
+  <style>
+    body {
+      background-color: #e9e9e9; /* Change this line to set the background color to gray */
+    }
 
-    <head></head>
-    <style></style>
 
-    <body>
-        <nav-bar></nav-bar>
-        
-        <div class="container">
+    .product-content {
+      padding:30px;
+      border-radius: 20px;
+      background-color: rgb(255, 255, 255);
+      margin-bottom: 15px;
+    }
 
+    .product-image {
+      max-width: 500px;
+    }
+
+    .price-container {
+      color: #d15241;
+      margin-bottom: 20px;
+    }
+
+    .add-cart {
+      display: flex;
+      justify-content: flex-end;
+      background-color: rgb(
+        255,
+        255,
+        255
+      ); /* Set the background color to pink */
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .add-cart a {
+      background-color: #344ab7;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .add-cart a:hover {
+      background-color: #283b95;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .input-group {
+      padding-right: 20px;
+      color: #344ab7;
+    }
+
+    .input-group input {
+      border-color: #344ab7;
+    }
+
+    .custom-outline-button {
+      border-color: #344ab7; /* Replace with your custom color code */
+      color: #344ab7; /* Text color, adjust as needed */
+    }
+
+    .custom-outline-button:hover {
+      background-color: #344ab7;
+      color: white;
+    }
+  </style>
+
+  <body>
+    <nav-bar></nav-bar>
+
+    <div class="container my-5">
+      <!-- product -->
+      <div class="product-content product-wrap clearfix product-deatil">
+        <div class="row">
+          <div class="col-md-5 col-sm-12 col-xs-12">
+            <div class="product-image">
+              <div class="carousel-inner">
+                <img src="../assets/img/cat1.jpg" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
+            <h3 class="name">
+              หนังสือ เมื่อแมวที่บ้านคุณผันตัวเองมาเป็นไลฟ์โค้ช
+            </h3>
+            <div class="star">
+              <i class="fa fa-star fa-2x text-warning"></i>
+              <i class="fa fa-star fa-2x text-warning"></i>
+              <i class="fa fa-star fa-2x text-warning"></i>
+              <i class="fa fa-star fa-2x text-warning"></i>
+              <i class="fa fa-star fa-2x text-muted"></i>
+            </div>
+            <hr />
+
+            <h4 class="price-container">฿129.54</h4>
+
+            <div class="info">
+              <h5>รายละเอียดสินค้า</h5>
+
+              <p>
+                นึกถึงตัวเองเป็นอันดับแรกไม่เคยเปรียบเทียบตัวเองกับใครไม่มานั่งกังวลเรื่องอดีตหรืออนาคตไม่ปล่อยให้เรื่องแย่
+                ๆ มาทำลายวันดี ๆใช้ชีวิตง่าย ๆ สบาย ๆ
+                แบบนี้เห็นจะมีแต่แมวเท่านั้น!พบกับ 40
+                คำแนะนำที่จะทำให้ชีวิตคุณเบาสบายขึ้นในทุก ๆ
+                ด้านจากไลฟ์โค้ชขนฟูที่อยู่เคียงข้างคุณมาตลอด... สำนักพิมพ์
+                :วีเลิร์น (WeLearn) ผู้แต่ง : Stephane Garnier
+              </p>
+              <p>ประเภทสินค้า : หนังสือ</p>
+              <p>หมวดสินค้า : จิตวิทยา</p>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <footer></footer>
-    </body>
+      <div class="add-cart">
+        <div class="col-lg-2">
+          <div class="input-group">
+            <button
+            (click)="decrease()"
+              type="button"
+              class="quantity-left-minus btn btn-outline custom-outline-button btn-number"
+              data-type="minus"
+              data-field=""
+            >
+              -
+            </button>
+
+            <input
+              type="text"
+              class="form-control input-number text-center"
+              value="{{quantity}}"
+            />
+
+            <button
+            (click)="increase()"
+              type="button"
+              class="quantity-right-plus btn btn-outline custom-outline-button btn-number"
+              data-type="plus"
+              data-field=""
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <a href="javascript:void(0);" class="btn btn-lg"
+          ><i class="fa fa-shopping-cart"></i> + เพิ่มไปยังรถเข็น</a
+        >
+      </div>
+    </div>
+
+    <footer></footer>
+  </body>
 </html>
