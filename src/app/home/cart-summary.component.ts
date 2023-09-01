@@ -7,4 +7,9 @@ import { Component } from '@angular/core';;
 })
 export class CartSummaryComponent {
 
+  products_add:number ;
+
+  constructor() {
+    this.products_add = 0;
+  }
 }

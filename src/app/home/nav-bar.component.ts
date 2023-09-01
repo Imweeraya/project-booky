@@ -9,7 +9,6 @@ export class NavBar {
 
   constructor(private router: Router) { }
 
-
   changerepository() {
     this.router.navigateByUrl('/booky');
   }
