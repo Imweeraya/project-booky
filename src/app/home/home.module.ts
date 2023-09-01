@@ -11,6 +11,8 @@ import { NavBar } from './nav-bar.component';
 import { Footer } from './footer.component';
 import { Bookpage } from './bookpage.component';
 import { Detail } from './detail.component';
+import { Checkout } from './checkout.component';
+import { Cart } from './cart.component';
 
 
 
@@ -22,7 +24,9 @@ import { Detail } from './detail.component';
     NavBar,
     Footer,
     Bookpage,
-    Detail
+    Detail,
+    Checkout,
+    Cart
   ],
   exports: [],
 })

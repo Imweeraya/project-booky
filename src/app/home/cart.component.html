@@ -1,0 +1,115 @@
+<html>
+  <head></head>
+  <style>
+    body {
+      background-color: #e9e9e9; /* Change this line to set the background color to gray */
+    }
+
+    .header {
+      background-color: white;
+      padding: 20px 30px 20px 30px;
+      color: #344ab7;
+      border-radius: 20px;
+    }
+
+    .header i{
+        margin-right: 5px;
+    }
+
+    .card{
+        padding: 10px 20px;
+    }
+
+    .card img{
+        height: 200px;
+        max-width: 200px;
+    }
+
+    .input-group{
+        width: 200px;
+    }
+
+    .input-group {
+      padding-right: 20px;
+      color: #344ab7;
+    }
+
+    .input-group input {
+      border-color: #344ab7;
+    }
+
+    .custom-outline-button {
+      border-color: #344ab7; /* Replace with your custom color code */
+      color: #344ab7; /* Text color, adjust as needed */
+    }
+
+    .custom-outline-button:hover {
+      background-color: #344ab7;
+      color: white;
+    }
+  </style>
+
+  <body>
+    <nav-bar></nav-bar>
+
+    <div class="container my-5">
+      <div class="header mb-3">
+        <h3> <i class="fa fa-shopping-cart"></i> ตะกร้าสินค้า</h3>
+      </div>
+
+
+      <div class="card rounded-3 mb-4">
+        <div class="card-body p-4">
+          <div class="row d-flex justify-content-between align-items-center">
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <img
+                src="../assets/img/cat1.jpg"
+                class="img-fluid rounded-3">
+            </div>
+
+            <div class="col-md-3 col-lg-3 col-xl-3">
+              <p class="lead fw-normal mb-2">หนังสือ เมื่อแมวที่บ้านคุณผันตัวเองมาเป็นไลฟ์โค้ช</p>
+            </div>
+
+            <div class="input-group">
+                <button
+                  (click)="decrease()"
+                  type="button"
+                  class="quantity-left-minus btn btn-outline custom-outline-button btn-number"
+                >
+                  -
+                </button>
+    
+                <input
+                  type="number"
+                  class="form-control input-number text-center"
+                  value="{{ quantity }}"
+                  [(ngModel)]="quantity"
+                  
+                />
+    
+                <button
+                  (click)="increase()"
+                  type="button"
+                  class="quantity-right-plus btn btn-outline custom-outline-button btn-number"
+                >
+                  +
+                </button>
+              </div>
+              
+
+            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+              <h5 class="mb-0">฿129.54</h5>
+            </div>
+            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+              <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer></footer>
+  </body>
+</html>
