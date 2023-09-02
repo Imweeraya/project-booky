@@ -13,11 +13,12 @@ import { Bookpage } from './bookpage.component';
 import { Detail } from './detail.component';
 import { Checkout } from './checkout.component';
 import { Cart } from './cart.component';
+import { ModelModule } from '../model/model.module';
 
 
 
 @NgModule({
-  imports: [ BrowserModule, FormsModule, RouterModule],
+  imports: [ ModelModule,BrowserModule, FormsModule, RouterModule],
   declarations: [
     HomeComponent,
     CartSummaryComponent,

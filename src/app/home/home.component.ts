@@ -34,4 +34,5 @@ export class HomeComponent {
   change_img(newImg: number) {
     this.current_img = newImg;
   }
+
 }
