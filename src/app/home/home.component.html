@@ -1,47 +1,95 @@
 <!DOCTYPE html>
 <html>
-  <head> 
-  </head>
+  <head> </head>
 
   <style>
-    
-    .promote{
-        font-size: 50px;
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    .promote img{
-        border-radius: 20px;
-        width: 50vw;
-        height: 50vh;
+    .dot-container {
+      display: flex;
+      align-items: center;
     }
 
-    .promote i{
-        margin-left: 20px;
-        margin-right: 20px;
-        cursor: pointer;
-        transition: 0.2s;
+    .promote {
+      font-size: 50px;
     }
 
-    .promote i:hover{
-        transition: 0.2s;
-        color: rgb(52, 74, 183);
+    .promote img {
+      border-radius: 20px;
+      width: 50vw;
+      height: 50vh;
+    }
+
+    .btn {
+      margin-left: 20px;
+      margin-right: 20px;
+      transition: 0.2s;
+      font-size: 50px;
+    }
+
+    .promote i:hover {
+      transition: 0.2s;
+      color: rgb(52, 74, 183);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ccc;
+      display: inline-block;
+      margin: 0 5px; /* Adjust the spacing between dots as needed */
+      cursor: pointer;
+    }
+
+    .dot.selected {
+      background-color: #344ab7; /* Change the color of the selected dot */
+    }
+
+    .dot-container button {
+      margin-left: 20px;
+      margin-right: 20px;
+      transition: 0.2s;
+      font-size: 30px;
     }
   </style>
   <body>
     <nav-bar></nav-bar>
-   
-      <p class="promote text-center my-5">
-        <i (click)="change_img_minus()" class="fa-solid fa-circle-chevron-left"></i>
-        <img src="../assets/img/cat1.jpg" class="image-with-text" *ngIf="current_img==1">
-        <img src="../assets/img/cat2.jpg" class="image-with-text" *ngIf="current_img==2">
-        <img src="../assets/img/cat3.jpg" class="image-with-text" *ngIf="current_img==3">
-        <i (click)="change_img_plus()" class="fa-solid fa-circle-chevron-right" ></i>
-      </p>
-  
-    
-    <footer></footer>
-    
-   
 
+    <div class="container">
+      <p class="promote text-center my-5">
+        <button class="btn btn-lg" (click)="change_img_minus()">
+          <i class="fa-solid fa-circle-chevron-left"></i>
+        </button>
+
+        <ng-container *ngFor="let img of imagePaths; let i = index">
+          <img
+            [src]="img"
+            class="image-with-text"
+            *ngIf="current_img === i + 1"
+          />
+        </ng-container>
+
+        <button class="btn btn-lg" (click)="change_img_plus()">
+          <i class="fa-solid fa-circle-chevron-right"></i>
+        </button>
+      </p>
+
+      <div class="dot-container">
+        <span
+          class="dot"
+          *ngFor="let img of imagePaths; let i = index"
+          [class.selected]="current_img === i + 1"
+          (click)="change_img(i + 1)"
+        ></span>
+      </div>
+    </div>
+
+    <footer></footer>
   </body>
 </html>

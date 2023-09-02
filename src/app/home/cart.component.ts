@@ -14,12 +14,18 @@ export class Cart {
   }
 
   increase() {
+    if(this.quantity>this.stock){
+      this.quantity = this.stock;
+    }
     if (this.quantity < this.stock) {
       this.quantity++;
     }
   }
 
   decrease() {
+    if(this.quantity>this.stock){
+      this.quantity = this.stock;
+    }
     if (this.quantity > 0) {
       this.quantity--;
     }
