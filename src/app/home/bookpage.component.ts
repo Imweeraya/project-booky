@@ -9,7 +9,7 @@ import { Product } from '../model/product.model';
 export class Bookpage {
 
   selectedCategory = "0";
-  selectedgenre? = "all";
+  selectedgenre = "all";
   productsPerPage = 8;
   selectedPage = 1;
 
@@ -18,17 +18,30 @@ export class Bookpage {
   ) {}
 
   get products(): Product[] {
-    //return this.repository.getProducts();
+    this.selectedPage = 1;
+    if(this.selectedgenre=="all"){
+      return this.repository.getProductsCategory(this.selectedCategory);
+    }else{
+      return this.repository.getProductsGenre(this.selectedgenre);
+    }
+    
+    //
     //return this.repository.getProducts(this.selectedCategory);
-    let pageIndex = (this.selectedPage - 1) * this.productsPerPage;
-    return this.repository
-      .getProductsCategory(this.selectedCategory)
-      .slice(pageIndex, pageIndex + this.productsPerPage);
+
+    // let pageIndex = (this.selectedPage - 1) * this.productsPerPage;
+    // return this.repository
+    //   .getProductsCategory(this.selectedCategory)
+    //   .slice(pageIndex, pageIndex + this.productsPerPage);
   }
 
-  changeGenre(newGenre?: string) {
-    this.selectedgenre = newGenre;
+  // changeGenre(newGenre?: string) {
+  //   this.selectedgenre = newGenre;
+  // }
+
+  changePage(newPage: number) {
+    this.selectedPage = newPage;
   }
+
 
 
 

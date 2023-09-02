@@ -8,6 +8,7 @@ export class StaticDataSource {
     new Product(
       1,
       'หนังสือ เมื่อแมวที่บ้านคุณผันตัวเองมาเป็นไลฟ์โค้ช',
+      5,
       '0',
       '00',
       `นึกถึงตัวเองเป็นอันดับแรกไม่เคยเปรียบเทียบตัวเองกับใครไม่มานั่งกังวลเรื่องอดีต
@@ -18,12 +19,13 @@ export class StaticDataSource {
         'https://pim-cdn0.ofm.co.th/products/large/DA04442.jpg',
         'https://pim-cdn0.ofm.co.th/products/large/DA04442_X2.jpg',
       ],
-      175,
-      10
+      10,
+      175
     ),
     new Product(
       1,
       'หนังสือ โชคดีที่มึงได้อ่าน',
+      4,
       '0',
       '00',
       `โชคดีที่มึงได้อ่าน จากที่สุดของ Content Online แห่งยุค เรื่องราวที่มีคุณค่า 
@@ -33,12 +35,13 @@ export class StaticDataSource {
         'https://pim-cdn0.ofm.co.th/products/large/D096012.jpg',
         'https://pim-cdn0.ofm.co.th/products/large/D096012_X2.jpg',
       ],
-      269,
-      15
+      15,
+      269
     ),
     new Product(
       1,
       'หนังสือ จิตวิทยาสายดาร์ก',
+      4,
       '0',
       '00',
       `"Dr. Hiro" เคยเป็นนักขายที่ล้มเหลว ขายอะไรก็ไม่มีใครซื้อ แต่แล้ววันหนึ่งขณะกำลังดูข่าว เขาก็นึกขึ้นได้ว่า 
@@ -50,12 +53,13 @@ export class StaticDataSource {
         'https://pim-cdn0.ofm.co.th/products/large/DA04715.jpg',
         'https://pim-cdn0.ofm.co.th/products/large/DA04715_X2.jpg',
       ],
-      250,
-      25
+      25,
+      250
     ),
     new Product(
       1,
       'หนังสือการ์ตูน มนตร์รัก Youtuber (เล่มเดียวจบ)',
+      3,
       '0',
       '02',
       `เรื่องราวเลิฟคอเมดี้สุดอลหม่านของยูทูปเบอร์สุดป่วน
@@ -69,25 +73,27 @@ export class StaticDataSource {
         'https://pim-cdn0.ofm.co.th/products/large/D092251.jpg',
         'https://pim-cdn0.ofm.co.th/products/large/D092251_X2.jpg',
       ],
-      49,
-      40
+      40,
+      49
     ),
     new Product(
       1,
       'หนังสือ ห้ามจูบจริงๆ เหรอครับ!? (เล่มเดียวจบ)',
+      2,
       '0',
       '02',
       `เการ์ตูน ห้ามจูบจริงๆ เหรอครับ!?
       ทั้งที่ชมรมห้ามมีความรักแต่ฉันก็ยังคบกับรุ่นน้องแบบลับๆ! 
       เล่นสอนเป่าฟลุตได้ซาดิสม์เกินไปแล้ว อายจนไม่รู้จะทำยังไง 
       จะทนไม่ไหวแล้ว!!`,
-      ['https://pim-cdn0.ofm.co.th/products/large/D092251.jpg'],
-      49,
-      23
+      ['https://pim-cdn0.ofm.co.th/products/large/D093681.jpg'],
+      23,
+      49
     ),
     new Product(
       1,
       'หนังสือ หนุ่มหล่อเฟี้ยวขอป่วนหัวใจ (เล่มเดียวจบ)',
+      3,
       '0',
       '02',
       `การ์ตูน หนุ่มหล่อเฟี้ยวขอป่วนหัวใจ
@@ -99,8 +105,8 @@ export class StaticDataSource {
       [
         'https://pim-cdn0.ofm.co.th/products/large/D095050.jpg'
       ],
-      49,
-      42
+      42,
+      49
     ),
   ];
 

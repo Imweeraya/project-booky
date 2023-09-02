@@ -7,6 +7,8 @@
     }
 
     .card-body {
+      
+      cursor: pointer;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
@@ -18,25 +20,30 @@
       flex: 0 0 calc(25% - 20px); /* 25% width with 20px spacing */
       margin: 10px; /* Add spacing between cards */
       border-radius: 20px;
-      font-size: 20px;
-      color: #d15241;
+      
     }
 
     .card h6 {
       color: #283b95;
       font-weight: 600;
+      padding: 20px;
+      height: 70px;
+    }
+
+    .card p{
+      padding: 10px;
+      font-size: 20px;
+      color: #d15241;
     }
 
     .card img {
-      height: 300px;
+      max-height: 300px;
     }
 
-    .nav-item {
-    }
   </style>
   <body>
     <nav-bar></nav-bar>
-    <div class="card text-center px-4">
+    <div class="card menu text-center px-4">
       <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item">
@@ -97,19 +104,17 @@
         </ul>
       </div>
 
-      <div class="card-body mx-5">
-        <!-- <ng-container *ngFor="let img of imagePaths; let i = index"></ng-container> -->
-        <div class="card">
+      <div routerLink="/detail" class="card-body mx-5">
+        <div class="card" *ngFor="let product of products" >
           <img
-            src="https://pim-cdn0.ofm.co.th/products/large/D096012.jpg"
+            *ngIf="product.img && product.img.length > 0" [src]="product.img[0]"
             class="card-img-top"
           />
-          <div class="card-body">
-            <h6>หนังสือ เมื่อแมวที่บ้านคุณผันตัวเองมาเป็นไลฟ์โค้ช</h6>
-            <p class="card-text">145฿</p>
-          </div>
+            <h6>{{product.name}}</h6>
+            <p class="card-text">{{product.price}}฿</p>
         </div>
       </div>
+
     </div>
     <footer></footer>
   </body>
