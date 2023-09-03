@@ -45,9 +45,9 @@ export class Detail {
     }
   }
 
-  getIDproduct() {
-    this.id = this.productDataService.getProductId();
-  }
+  // getIDproduct() {
+  //   this.id = this.productDataService.getProductId();
+  // }
 
   get product(): Product {
     const product = this.repository.getProductByID(
@@ -57,9 +57,9 @@ export class Detail {
     return product ? product : {}; //check if it have? if not return nothing
   }
 
-  setID(recieveID: number) {
-    this.id = recieveID;
-  }
+  // setID(recieveID: number) {
+  //   this.id = recieveID;
+  // }
 
   increase() {
     if (this.quantity > this.stock) {

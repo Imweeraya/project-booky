@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Injectable, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductRepository } from '../model/product.repository';
+import { ProductDataService } from '../product-data.service';
 
 @Component({
   selector: 'nav-bar',
@@ -10,15 +10,17 @@ export class NavBar {
 
   keyword: string;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router,
+    private productDataService: ProductDataService) { 
     this.keyword ="";
   }
   
-  @Output() sendkeyword: EventEmitter<string> = new EventEmitter();
+  // @Output() sendkeyword: EventEmitter<string> = new EventEmitter();
 
   setkeyword(key: string) {
-    this.keyword = key;
-    this.sendkeyword.emit(this.keyword);
+    // this.keyword = key;
+    // this.sendkeyword.emit(this.keyword);
+    this.productDataService.setFilterKey(key);
   }
 
   

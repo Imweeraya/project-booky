@@ -46,9 +46,7 @@
   </style>
 
   <body>
-    <nav-bar
-    (sendkeyword) = "setRecieveKey($event)"
-    ></nav-bar>
+    <nav-bar></nav-bar>
 
     <div class="container my-5">
       <div class="header mb-1">
@@ -61,6 +59,7 @@
             *ngIf="product.img && product.img.length > 0"
             [src]="product.img[0]"
             class="card-img-top"
+            (click)="setID(product.id)"
           />
           <h6>{{ product.name }}</h6>
           <p class="card-text">{{ product.price }}฿</p>
