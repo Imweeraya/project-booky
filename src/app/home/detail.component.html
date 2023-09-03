@@ -14,7 +14,6 @@
 
     .product-image img {
       height: 400px;
-      width: 100%;
     }
 
     .price-container {
@@ -66,13 +65,20 @@
     }
 
     .image-slider {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-inner{
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .dot-container {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-top: 10px; /* Adjust the spacing as needed */
     }
 
@@ -101,6 +107,7 @@
       transition: 0.2s;
       color: rgb(52, 74, 183);
     }
+
   </style>
 
   <body>
@@ -112,6 +119,7 @@
         <div class="row">
           <div class="col-md-5 col-sm-12 col-xs-12">
             <div class="product-image">
+              
               <div class="carousel-inner">
                 <ng-container *ngFor="let img of imagePaths; let i = index">
                   <img
@@ -122,26 +130,28 @@
                 </ng-container>
               </div>
 
-              <div class="dot-container">
-                <button class="btn btn-lg" (click)="change_img_minus()">
-                  <i class="fa-solid fa-circle-chevron-left"></i>
-                </button>
-                <span
-                  class="dot"
-                  *ngFor="let img of imagePaths; let i = index"
-                  [class.selected]="current_img === i + 1"
-                  (click)="change_img(i + 1)"
-                ></span
-                ><button class="btn btn-lg" (click)="change_img_plus()">
-                  <i class="fa-solid fa-circle-chevron-right"></i>
-                </button>
+
+                <div class="dot-container">
+                  <button class="btn btn-lg" (click)="change_img_minus()">
+                    <i class="fa-solid fa-circle-chevron-left"></i>
+                  </button>
+                  <span
+                    class="dot"
+                    *ngFor="let img of imagePaths; let i = index"
+                    [class.selected]="current_img === i + 1"
+                    (click)="change_img(i + 1)"
+                  ></span>
+                  <button class="btn btn-lg" (click)="change_img_plus()">
+                    <i class="fa-solid fa-circle-chevron-right"></i>
+                  </button>
+                </div>
               </div>
-            </div>
+   
           </div>
 
           <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
             <h3 class="name">
-              หนังสือ เมื่อแมวที่บ้านคุณผันตัวเองมาเป็นไลฟ์โค้ช
+              {{ product.name }}
             </h3>
             <div class="star">
               <i class="fa fa-star fa-2x text-warning"></i>
@@ -152,21 +162,16 @@
             </div>
             <hr />
 
-            <h4 class="price-container">฿129.54</h4>
+            <h4 class="price-container">฿ {{ product.price }}</h4>
 
             <div class="info">
               <h5>รายละเอียดสินค้า</h5>
 
               <p>
-                นึกถึงตัวเองเป็นอันดับแรกไม่เคยเปรียบเทียบตัวเองกับใครไม่มานั่งกังวลเรื่องอดีตหรืออนาคตไม่ปล่อยให้เรื่องแย่
-                ๆ มาทำลายวันดี ๆใช้ชีวิตง่าย ๆ สบาย ๆ
-                แบบนี้เห็นจะมีแต่แมวเท่านั้น!พบกับ 40
-                คำแนะนำที่จะทำให้ชีวิตคุณเบาสบายขึ้นในทุก ๆ
-                ด้านจากไลฟ์โค้ชขนฟูที่อยู่เคียงข้างคุณมาตลอด... สำนักพิมพ์
-                :วีเลิร์น (WeLearn) ผู้แต่ง : Stephane Garnier
+                {{ product.info }}
               </p>
-              <p>ประเภทสินค้า : หนังสือ</p>
-              <p>หมวดสินค้า : จิตวิทยา</p>
+              <p>ประเภทสินค้า : {{ product.category }}</p>
+              <p>หมวดสินค้า : {{ product.genre }}</p>
             </div>
           </div>
         </div>

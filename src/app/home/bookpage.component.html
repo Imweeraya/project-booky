@@ -58,8 +58,8 @@
           </li>
           <li class="nav-item">
             <a
-              (click)="selectedgenre = '00'"
-              [class.active]="selectedgenre === '00'"
+              (click)="selectedgenre = 'จิตวิทยา'"
+              [class.active]="selectedgenre === 'จิตวิทยา'"
               class="nav-link"
               href="javascript:void"
               >จิตวิทยา</a
@@ -67,8 +67,8 @@
           </li>
           <li class="nav-item">
             <a
-              (click)="selectedgenre = '01'"
-              [class.active]="selectedgenre === '01'"
+              (click)="selectedgenre = 'งานอดิเรก'"
+              [class.active]="selectedgenre === 'งานอดิเรก'"
               class="nav-link"
               href="javascript:void"
               >งานอดิเรก</a
@@ -76,8 +76,8 @@
           </li>
           <li class="nav-item">
             <a
-              (click)="selectedgenre = '02'"
-              [class.active]="selectedgenre === '02'"
+              (click)="selectedgenre = 'การ์ตูน มังงะ'"
+              [class.active]="selectedgenre === 'การ์ตูน มังงะ'"
               class="nav-link"
               href="javascript:void"
               >การ์ตูน มังงะ</a
@@ -85,8 +85,8 @@
           </li>
           <li class="nav-item">
             <a
-              (click)="selectedgenre = '03'"
-              [class.active]="selectedgenre === '03'"
+              (click)="selectedgenre = 'เตรียมสอบ'"
+              [class.active]="selectedgenre === 'เตรียมสอบ'"
               class="nav-link"
               href="javascript:void"
               >เตรียมสอบ</a
@@ -94,8 +94,8 @@
           </li>
           <li class="nav-item">
             <a
-              (click)="selectedgenre = '04'"
-              [class.active]="selectedgenre === '04'"
+              (click)="selectedgenre = 'เด็ก'"
+              [class.active]="selectedgenre === 'เด็ก'"
               class="nav-link"
               href="javascript:void"
               >เด็ก</a
@@ -104,9 +104,9 @@
         </ul>
       </div>
 
-      <div routerLink="/detail" class="card-body mx-5">
-        <div class="card" *ngFor="let product of products" >
-          <img
+      <div   class="card-body mx-5">
+        <div class="card" *ngFor="let product of products" routerLink="/detail" (click)="setID(product.id)">
+          <img 
             *ngIf="product.img && product.img.length > 0" [src]="product.img[0]"
             class="card-img-top"
           />

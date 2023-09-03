@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ProductRepository } from '../model/product.repository';
 import { Product } from '../model/product.model';
+import { ProductDataService } from '../product-data.service';
 
 @Component({
   selector: 'book-page',
@@ -8,14 +9,22 @@ import { Product } from '../model/product.model';
 })
 export class Bookpage {
 
-  selectedCategory = "0";
-  selectedgenre = "all";
-  productsPerPage = 8;
-  selectedPage = 1;
+  selectedCategory:string;
+  selectedgenre:string;
+  productsPerPage:number;
+  selectedPage:number;
+  productID:number;
 
   constructor(
+    private productDataService: ProductDataService,
     private repository: ProductRepository,
-  ) {}
+  ) {
+    this.productID = 0;
+    this.selectedPage = 1;
+    this.productsPerPage = 8;
+    this.selectedgenre = "all";
+    this.selectedCategory = "หนังสือ";
+  }
 
   get products(): Product[] {
     this.selectedPage = 1;
@@ -35,6 +44,11 @@ export class Bookpage {
   }
 
 
+  setID(productId?: number) {
+  this.productID = productId !== undefined ? productId : 0; // Check for undefined
+  this.productDataService.setProductId(this.productID); // Call the setProductId method with the value
+}
 
+  
 
 }
