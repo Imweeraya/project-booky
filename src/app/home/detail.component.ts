@@ -9,41 +9,60 @@ import { ProductDataService } from '../product-data.service';
 })
 export class Detail {
   quantity: number;
-  stock:number;
-  id:number;
-  
+  stock: number;
+  id: number;
+  starClasses: string[];
+
   // Define an array of image paths
   imagePaths: string[];
 
   constructor(
     private productDataService: ProductDataService,
     private repository: ProductRepository
-    ) {
-    this.id = 2 ;
-    //this.id = this.product.id ?? 0;
+  ) {
+    //this.id = 2 ;
+    this.id = this.product.id ?? 0;
 
     this.quantity = 1;
     this.stock = this.product.stock ?? 0;
     this.imagePaths = this.product.img ?? [];
-   }
+    this.starClasses = [];
+    
+    if (this.product.rate !== undefined) {
+      this.setstar(this.product.rate);
+    }
+  }
 
-   getIDproduct(){
+  setstar(rate: number) {
+    let i = 0;
+    for (i = 0; i < rate; i++) {
+      this.starClasses.push("text-warning")
+    }
+    if(rate < 5){
+      for (i = 0; i < (5-rate); i++) {
+        this.starClasses.push("text-muted")
+      }
+    }
+  }
+
+  getIDproduct() {
     this.id = this.productDataService.getProductId();
-   }
+  }
 
-   get product() : Product{
-    //const product = this.repository.getProductByID(this.productDataService.getProductId());
-    const product = this.repository.getProductByID(this.id);
+  get product(): Product {
+    const product = this.repository.getProductByID(
+      this.productDataService.getProductId()
+    );
+    //const product = this.repository.getProductByID(this.id);
     return product ? product : {}; //check if it have? if not return nothing
   }
 
-  setID(recieveID : number){
+  setID(recieveID: number) {
     this.id = recieveID;
   }
 
-
-   increase() {
-    if(this.quantity>this.stock){
+  increase() {
+    if (this.quantity > this.stock) {
       this.quantity = this.stock;
     }
     if (this.quantity < this.stock) {
@@ -52,7 +71,7 @@ export class Detail {
   }
 
   decrease() {
-    if(this.quantity>this.stock){
+    if (this.quantity > this.stock) {
       this.quantity = this.stock;
     }
     if (this.quantity > 0) {
@@ -61,8 +80,6 @@ export class Detail {
   }
 
   current_img = 1;
-
-  
 
   change_img_plus() {
     if (this.current_img < this.imagePaths.length) {
@@ -83,6 +100,4 @@ export class Detail {
   change_img(newImg: number) {
     this.current_img = newImg;
   }
-
-
 }

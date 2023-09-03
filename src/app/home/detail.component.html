@@ -69,7 +69,7 @@
       justify-content: center;
     }
 
-    .carousel-inner{
+    .carousel-inner {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -107,7 +107,6 @@
       transition: 0.2s;
       color: rgb(52, 74, 183);
     }
-
   </style>
 
   <body>
@@ -119,7 +118,6 @@
         <div class="row">
           <div class="col-md-5 col-sm-12 col-xs-12">
             <div class="product-image">
-              
               <div class="carousel-inner">
                 <ng-container *ngFor="let img of imagePaths; let i = index">
                   <img
@@ -130,23 +128,21 @@
                 </ng-container>
               </div>
 
-
-                <div class="dot-container">
-                  <button class="btn btn-lg" (click)="change_img_minus()">
-                    <i class="fa-solid fa-circle-chevron-left"></i>
-                  </button>
-                  <span
-                    class="dot"
-                    *ngFor="let img of imagePaths; let i = index"
-                    [class.selected]="current_img === i + 1"
-                    (click)="change_img(i + 1)"
-                  ></span>
-                  <button class="btn btn-lg" (click)="change_img_plus()">
-                    <i class="fa-solid fa-circle-chevron-right"></i>
-                  </button>
-                </div>
+              <div class="dot-container">
+                <button class="btn btn-lg" (click)="change_img_minus()">
+                  <i class="fa-solid fa-circle-chevron-left"></i>
+                </button>
+                <span
+                  class="dot"
+                  *ngFor="let img of imagePaths; let i = index"
+                  [class.selected]="current_img === i + 1"
+                  (click)="change_img(i + 1)"
+                ></span>
+                <button class="btn btn-lg" (click)="change_img_plus()">
+                  <i class="fa-solid fa-circle-chevron-right"></i>
+                </button>
               </div>
-   
+            </div>
           </div>
 
           <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
@@ -154,11 +150,11 @@
               {{ product.name }}
             </h3>
             <div class="star">
-              <i class="fa fa-star fa-2x text-warning"></i>
-              <i class="fa fa-star fa-2x text-warning"></i>
-              <i class="fa fa-star fa-2x text-warning"></i>
-              <i class="fa fa-star fa-2x text-warning"></i>
-              <i class="fa fa-star fa-2x text-muted"></i>
+              <i
+                *ngFor="let starClass of starClasses; let i = index"
+                [ngClass]="starClass"
+                class="fa fa-star fa-2x"
+              ></i>
             </div>
             <hr />
 
