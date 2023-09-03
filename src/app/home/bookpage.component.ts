@@ -24,14 +24,6 @@ export class Bookpage {
     }else{
       return this.repository.getProductsGenre(this.selectedgenre);
     }
-    
-    //
-    //return this.repository.getProducts(this.selectedCategory);
-
-    // let pageIndex = (this.selectedPage - 1) * this.productsPerPage;
-    // return this.repository
-    //   .getProductsCategory(this.selectedCategory)
-    //   .slice(pageIndex, pageIndex + this.productsPerPage);
   }
 
   // changeGenre(newGenre?: string) {

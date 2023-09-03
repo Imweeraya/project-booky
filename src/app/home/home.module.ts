@@ -14,6 +14,7 @@ import { Detail } from './detail.component';
 import { Checkout } from './checkout.component';
 import { Cart } from './cart.component';
 import { ModelModule } from '../model/model.module';
+import { Filter } from './filter-result.component';
 
 
 
@@ -27,7 +28,8 @@ import { ModelModule } from '../model/model.module';
     Bookpage,
     Detail,
     Checkout,
-    Cart
+    Cart,
+    Filter
   ],
   exports: [],
 })

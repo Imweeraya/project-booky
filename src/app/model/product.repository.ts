@@ -18,6 +18,10 @@ export class ProductRepository {
     });
   }
 
+  getAllProducts(): Product[] {
+    return this.products
+  }
+
   getProductsCategory(category?: string): Product[] {
     return this.products.filter(
       (p) => category == undefined || category == p.category
@@ -34,9 +38,18 @@ export class ProductRepository {
   getProductByID(id: number): Product | undefined {
     return this.products.find((p) => p.id == id);
   }
+
   
   getCategories(): string[] {
     return this.categories;
   }
 
+  filterProductByName(name: string): Product[] {
+    const lowercaseName = name.toLowerCase();
+    return this.products.filter((p) => p.name?.toLowerCase().includes(lowercaseName));
+  }
+  
+  
+  
+  
 }

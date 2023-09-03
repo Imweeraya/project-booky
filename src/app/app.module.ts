@@ -10,6 +10,7 @@ import { Bookpage } from './home/bookpage.component';
 import { Detail } from './home/detail.component';
 import { Checkout } from './home/checkout.component';
 import { Cart } from './home/cart.component';
+import { Filter } from './home/filter-result.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { Cart } from './home/cart.component';
     { path: 'detail', component: Detail },
     { path: 'cart', component: Cart },
     { path: 'checkout', component: Checkout },
+    { path: 'filter-result', component: Filter },
     { path: '**', redirectTo: '/booky' },
     
   ]),
