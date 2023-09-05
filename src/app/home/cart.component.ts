@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { CartModel } from '../model/cart.model';
-import { Product } from '../model/product.model';
+
 
 @Component({
   selector: 'cart',
@@ -17,17 +17,36 @@ export class Cart {
 
   deleteProduct(id : number) {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'ลบรายการ',
+      text: "คุณต้องการลบรายการสินค้านี้หรือไม่?",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'ยกเลิก',
+      confirmButtonText: 'ยืนยัน',
     }).then((result) => {
       if (result.isConfirmed) {
         this.cart.removeLine(id ?? 0);
-        Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+        Swal.fire('ลบแล้ว!', 'ลบรายการสินค้าแล้ว', 'success');
+      }
+    });
+  }
+
+  deleteAll() {
+    Swal.fire({
+      title: 'ลบรายการทั้งหมด',
+      text: "คุณต้องการลบรายการสินค้าทั้งหมดหรือไม่?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'ยกเลิก',
+      confirmButtonText: 'ยืนยัน',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cart.clear();
+        Swal.fire('ลบแล้ว!', 'ลบรายการสินค้าทั้งหมดแล้ว', 'success');
       }
     });
   }

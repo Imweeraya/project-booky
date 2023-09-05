@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { StaticDataSource } from './static.datasource';
 import { ProductRepository } from './product.repository';
 import { CartModel } from './cart.model';
+import { Order } from './order.model';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { CartModel } from './cart.model';
     ProductRepository,
     StaticDataSource,
     CartModel,
+    Order,
     { provide: StaticDataSource }
   ],
 })

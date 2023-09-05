@@ -81,6 +81,7 @@
     #checkout-btn:hover {
       background-color: #283b95;
     }
+
   </style>
 
   <body>
@@ -141,11 +142,12 @@
         </div>
       </div>
 
-      <div class="total mb-5">รวม {{ cart.itemCount }} สินค้า : {{ cart.cartPrice }}</div>
+      <div class="total mb-5">รวม {{ cart.itemCount }} สินค้า : ฿{{ cart.cartPrice }}</div>
 
       <div class="shop-button">
-        <button class="btn btn-lg" id="continue-btn">เลือกสินค้าเพิ่ม</button>
-        <button class="btn btn-lg" id="checkout-btn">สั่งสินค้า</button>
+        <button class="btn btn-lg btn-danger mx-2" (click)="deleteAll()">ลบทั้งหมด <i class="fas fa-trash fa-lg"></i></button>
+        <button routerLink="/booky" class="btn btn-lg" id="continue-btn">เลือกสินค้าเพิ่ม</button>
+        <button [disabled]="cart.itemCount == 0" routerLink="/checkout" class="btn btn-lg" id="checkout-btn">สั่งสินค้า</button>
       </div>
     </div>
 
