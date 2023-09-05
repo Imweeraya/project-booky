@@ -76,7 +76,7 @@ export class Detail {
     if (this.quantity > this.stock) {
       this.quantity = this.stock;
     }
-    if (this.quantity > 0) {
+    if (this.quantity > 1) {
       this.quantity--;
     }
   }

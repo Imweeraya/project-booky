@@ -188,7 +188,7 @@
               type="number"
               class="form-control input-number text-center"
               value="{{ quantity }}"
-              [min]="0"
+              [min]="1"
               [max]="product.stock??0"
               [(ngModel)]="quantity"
             />
