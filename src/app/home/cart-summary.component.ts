@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';;
+import { Component } from '@angular/core';
+import { CartModel } from '../model/cart.model';
 
 @Component({
   selector: 'cart-summary',
@@ -7,9 +8,7 @@ import { Component } from '@angular/core';;
 })
 export class CartSummaryComponent {
 
-  products_add:number ;
 
-  constructor() {
-    this.products_add = 0;
+  constructor(public cart: CartModel) {
   }
 }

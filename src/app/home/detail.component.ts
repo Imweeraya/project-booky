@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductRepository } from '../model/product.repository';
 import { Product } from '../model/product.model';
 import { ProductDataService } from '../product-data.service';
+import { CartModel } from '../model/cart.model';
 
 @Component({
   selector: 'detail',
@@ -18,7 +19,8 @@ export class Detail {
 
   constructor(
     private productDataService: ProductDataService,
-    private repository: ProductRepository
+    private repository: ProductRepository,
+    private cart: CartModel
   ) {
     //this.id = 2 ;
     this.id = this.product.id ?? 0;
@@ -100,4 +102,9 @@ export class Detail {
   change_img(newImg: number) {
     this.current_img = newImg;
   }
+
+  addProductToCart(product: Product) {
+    this.cart.addLine(product , this.quantity);
+  }
+
 }

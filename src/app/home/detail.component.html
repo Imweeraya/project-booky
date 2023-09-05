@@ -188,6 +188,8 @@
               type="number"
               class="form-control input-number text-center"
               value="{{ quantity }}"
+              [min]="0"
+              [max]="product.stock??0"
               [(ngModel)]="quantity"
             />
 
@@ -200,7 +202,7 @@
             </button>
           </div>
         </div>
-        <a href="javascript:void(0);" class="btn btn-lg"
+        <a href="javascript:void(0);" class="btn btn-lg" (click)="addProductToCart(product)"
           ><i class="fa fa-shopping-cart"></i> + เพิ่มไปยังรถเข็น</a
         >
       </div>

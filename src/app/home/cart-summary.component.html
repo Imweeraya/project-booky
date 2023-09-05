@@ -7,8 +7,10 @@
         <button  class="btn btn-sm bg-dark text-white" routerLink="/cart">
           <i class="fa fa-shopping-cart"></i>
         </button>
-        <span id="products_add">{{products_add}}</span>
+        <span *ngIf="cart.itemCount > 0" id="products_add">{{cart.itemCount}}</span>
       </div>
     </div>
   </body>
+
+  <!-- [disabled]="cart.itemCount == 0" -->
 </html>
