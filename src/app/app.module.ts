@@ -4,13 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
+import { AdminModule } from './admin/admin.module';
 import { HomeComponent } from './store/home.component';
+
 import { StoreModule } from './store/store.module';
 import { Bookpage } from './store/bookpage.component';
 import { Detail } from './store/detail.component';
 import { Checkout } from './store/checkout.component';
 import { Cart } from './store/cart.component';
 import { Filter } from './store/filter-result.component';
+import { AdminLogin } from './admin/adminLogin.component';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,10 +28,11 @@ import { Filter } from './store/filter-result.component';
     { path: 'cart', component: Cart },
     { path: 'checkout', component: Checkout },
     { path: 'filter-result', component: Filter },
+    { path: 'admin-login', component: AdminLogin },
     { path: '**', redirectTo: '/booky' },
     
   ]),
-  StoreModule
+  StoreModule , AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
