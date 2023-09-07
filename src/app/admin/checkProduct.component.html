@@ -1,0 +1,109 @@
+<html>
+  <head></head>
+  <style>
+    .navbar {
+      background-color: rgb(52, 74, 183); /* Set the background color to pink */
+    }
+
+    .navbar-brand {
+      font-size: 25px;
+      color: rgb(255, 255, 255);
+    }
+
+    .head {
+      cursor: context-menu;
+    }
+
+    .select {
+      width: 200px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #e9e9e9;
+      transition: 0.5s;
+    }
+
+    .select:hover{
+        transition: 0.5s;
+        background-color: white;
+    }
+
+
+  </style>
+  <body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light navbar-bg">
+      <div class="container-fluid mx-2 my-1">
+        <a class="navbar-brand head" href="javascript:void(0)">
+          <i class="fa-solid fa-users-gear mx-4"></i>
+          <span class="">Admin BoOkY</span>
+        </a>
+
+        <div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <form class="d-flex" role="search">
+                <input
+                  #filter
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button
+                  (click)="setkeyword(filter.value)"
+                  routerLink="/filter-result"
+                  class="btn btn-outline-light"
+                  type="submit"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </li>
+
+            <li class="mx-4">
+                
+                <select class="select" id="subcategory" name="subcategory">
+
+                    <option>ทั้งหมด</option>
+                    <optgroup label="0 หนังสือ">
+                        <option>00 ทั้งหมด</option>
+                        <option>01 จิตวิทยา</option>
+                        <option>02 งานอดิเรก</option>
+                        <option>03 การ์ตูน มังงะ</option>
+                        <option>04 เตรียมสอบ</option>
+                        <option>05 เด็ก</option>
+                    </optgroup>
+            
+                    <optgroup label="1 ศิลปะและงานฝีมือ">
+                        <option>10 ทั้งหมด</option>
+                        <option>11 อุปกรณ์วาดรูป</option>
+                        <option>12 แฟ้ม ซองพัสดุ</option>
+                        <option>13 เครื่องเขียน</option>
+                        <option>14 เทปกาว</option>
+                    </optgroup>
+
+                    <optgroup label="2 ไอที & แก็ตเจ็ต">
+                        <option>20 ทั้งหมด</option>
+                        <option>21 คีย์บอร์ด</option>
+                        <option>22 เม้าส์</option>
+                        <option>23 หูฟัง</option>
+                    </optgroup>
+
+                    <optgroup label="3 ของเล่น & ของขวัญ">
+                        <option>30 ทั้งหมด</option>
+                        <option>31 ของเล่น</option>
+                        <option>32 แฟชั่น</option>
+                    </optgroup>
+
+                </select>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+  </body>
+</html>

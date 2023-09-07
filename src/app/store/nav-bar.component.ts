@@ -8,11 +8,8 @@ import { ProductDataService } from '../product-data.service';
 })
 export class NavBar {
 
-  keyword: string;
-
   constructor(private router: Router,
     private productDataService: ProductDataService) { 
-    this.keyword ="";
   }
   
   // @Output() sendkeyword: EventEmitter<string> = new EventEmitter();
