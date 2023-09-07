@@ -50,4 +50,9 @@ export class Cart {
       }
     });
   }
+
+  goBack() {
+    window.history.go(-2);
+  }
+
 }

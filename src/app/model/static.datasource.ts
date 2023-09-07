@@ -16,8 +16,7 @@ export class StaticDataSource {
       แบบนี้เห็นจะมีแต่แมวเท่านั้น!พบกับ 40 คำแนะนำที่จะทำให้ชีวิตคุณเบาสบายขึ้นในทุก ๆ
       ด้านจากไลฟ์โค้ชขนฟูที่อยู่เคียงข้างคุณมาตลอด`,
       [
-        'https://pim-cdn0.ofm.co.th/products/large/DA04442.jpg',
-        'https://pim-cdn0.ofm.co.th/products/large/DA04442_X2.jpg',
+        'https://down-th.img.susercontent.com/file/th-11134207-7qul0-lfgk133pte6fcb',
       ],
       10,
       175
@@ -32,8 +31,8 @@ export class StaticDataSource {
       จากรายการ อย่าหาว่าน้าสอน ในช่อง NANAKE 555 ที่ได้รับความนิยมอย่างล้นหลาม 
       ถูกร้อยเรียงเป็นตัวอักษรบรรจุอยู่ในหนังสือเล่มนี้ ให้ทุกคนได้เป็นเจ้าของ หยิบอ่านได้ทุกเมื่อที่ต้องการ`,
       [
-        'https://pim-cdn0.ofm.co.th/products/large/D096012.jpg',
-        'https://pim-cdn0.ofm.co.th/products/large/D096012_X2.jpg',
+        'https://down-th.img.susercontent.com/file/th-11134201-7qul1-ljjlp0jnquyx2c',
+        'https://down-th.img.susercontent.com/file/th-11134201-7qul7-ljjlp1ka999i84',
       ],
       15,
       269

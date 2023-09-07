@@ -33,4 +33,4 @@ import { Filter } from './filter-result.component';
   ],
   exports: [],
 })
-export class HomeModule {}
+export class StoreModule {}

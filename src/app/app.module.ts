@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { HomeModule } from './home/home.module';
-import { Bookpage } from './home/bookpage.component';
-import { Detail } from './home/detail.component';
-import { Checkout } from './home/checkout.component';
-import { Cart } from './home/cart.component';
-import { Filter } from './home/filter-result.component';
+import { HomeComponent } from './store/home.component';
+import { StoreModule } from './store/store.module';
+import { Bookpage } from './store/bookpage.component';
+import { Detail } from './store/detail.component';
+import { Checkout } from './store/checkout.component';
+import { Cart } from './store/cart.component';
+import { Filter } from './store/filter-result.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +27,7 @@ import { Filter } from './home/filter-result.component';
     { path: '**', redirectTo: '/booky' },
     
   ]),
-  HomeModule
+  StoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
