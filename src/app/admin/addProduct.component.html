@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+
+  <style>
+    textarea{
+        height: 100px;
+        max-height: 200px;
+    }
+
+    h1{
+        color: #283b95;
+    }
+  </style>
+
+  <body>
+    <nav-admin></nav-admin>
+    <div class="container my-5">
+      <h1 class="mb-5"><i class="fa-solid fa-circle-plus"></i> เพิ่มสินค้า</h1>
+
+      <form action="process_edit_product.php" method="post">
+        <!-- Product Name -->
+        <div class="mb-3">
+          <label class="form-label">ชื่อสินค้า:</label>
+          <input type="text" id="productName" class="form-control" required />
+        </div>
+
+        <!-- Product Rate -->
+        <div class="mb-3">
+          <label class="form-label">ความนิยมสินค้า (0-5) :</label>
+          <input type="number" id="" class="form-control" required />
+        </div>
+
+        <!-- Product Catagory -->
+        <div class="mb-3">
+          <label class="form-label">ประเภทสินค้า :</label>
+          <input type="text" id="" class="form-control" required />
+        </div>
+
+        <!-- Product Genre -->
+        <div class="mb-3">
+          <label class="form-label">หมวดหมู่สินค้า :</label>
+          <input type="text" id="" class="form-control" required />
+        </div>
+
+
+        <!-- Product info -->
+        <div class="mb-3">
+          <label class="form-label">รายละเอียดสินค้า :</label>
+          <textarea
+            type="text"
+            id="info"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Product img -->
+        <div class="mb-3">
+            <label class="form-label">ลิงค์รูปภาพสินค้า <span class="text-muted">[ หากมีมากกว่า 1 ภาพ ใช้ ( , ) คั่นระหว่างลิงค์ ]</span>  :</label>
+            <input type="text" id="" class="form-control" required />
+        </div> 
+        
+        <!-- Product Quantity -->
+        <div class="mb-3">
+          <label class="form-label">คลัง:</label>
+          <input
+            type="number"
+            id="productQuantity"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <!-- Product Price -->
+        <div class="mb-3">
+          <label class="form-label">ราคาสินค้า:</label>
+          <input
+            type="number"
+            id="productPrice"
+            class="form-control"
+            step="0.01"
+            required
+          />
+        </div>
+
+       
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">ยืนยัน</button>
+      </form>
+    </div>
+
+    <!-- Include Bootstrap JS if needed -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

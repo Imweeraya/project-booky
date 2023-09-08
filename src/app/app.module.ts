@@ -15,6 +15,8 @@ import { Cart } from './store/cart.component';
 import { Filter } from './store/filter-result.component';
 import { AdminLogin } from './admin/adminLogin.component';
 import { CheckProduct } from './admin/checkProduct.component';
+import { EditProduct } from './admin/editProduct.component';
+import { AddProduct } from './admin/addProduct.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { CheckProduct } from './admin/checkProduct.component';
     { path: 'filter-result', component: Filter },
     { path: 'admin-login', component: AdminLogin },
     { path: 'check-product', component: CheckProduct },
+    { path: 'edit-product', component: EditProduct },
+    { path: 'add-product', component: AddProduct },
     { path: '**', redirectTo: '/booky' },
     
   ]),

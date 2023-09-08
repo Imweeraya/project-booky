@@ -6,12 +6,19 @@ import { RouterModule } from '@angular/router';
 import { ModelModule } from '../model/model.module';
 import { NavAdmin } from './nav-admin.component';
 import { AdminLogin } from './adminLogin.component';
+import { CheckProduct } from './checkProduct.component';
+import { EditProduct } from './editProduct.component';
+import { AddProduct } from './addProduct.component';
 
 @NgModule({
     imports: [ ModelModule,BrowserModule, FormsModule, RouterModule],
     declarations: [
       NavAdmin,
-      AdminLogin
+      AdminLogin,
+      CheckProduct,
+      EditProduct,
+      AddProduct
+
     ],
     exports: [],
   })
