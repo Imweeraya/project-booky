@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { CartSummaryComponent } from './cart-summary.component';
 import { HomeComponent } from './home.component';
@@ -18,8 +18,9 @@ import { Filter } from './filter-result.component';
 
 
 
+
 @NgModule({
-  imports: [ ModelModule,BrowserModule, FormsModule, RouterModule],
+  imports: [ ModelModule,BrowserModule, FormsModule, RouterModule,HttpClientModule],
   declarations: [
     HomeComponent,
     CartSummaryComponent,
