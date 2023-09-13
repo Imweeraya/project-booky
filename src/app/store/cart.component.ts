@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
-import { CartModel } from '../model/cart.model';
+import { CartModel } from '../model/storeModel/cart.model';
 
 
 @Component({

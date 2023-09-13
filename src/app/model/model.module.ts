@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
-import { StaticDataSource } from './static.datasource';
-import { ProductRepository } from './product.repository';
-import { CartModel } from './cart.model';
-import { Order } from './order.model';
+import { StaticDataSource } from './storeModel/static.datasource';
+import { ProductRepository } from './storeModel/product.repository';
+import { CartModel } from './storeModel/cart.model';
+import { Order } from './storeModel/order.model';
 
 
 @NgModule({
+  imports: [ HttpClientModule],
   providers: [
     ProductRepository,
     StaticDataSource,

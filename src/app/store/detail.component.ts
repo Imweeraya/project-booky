@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ProductRepository } from '../model/product.repository';
-import { Product } from '../model/product.model';
+import { ProductRepository } from '../model/storeModel/product.repository';
+import { Product } from '../model/storeModel/product.model';
 import { ProductDataService } from '../product-data.service';
-import { CartModel } from '../model/cart.model';
+import { CartModel } from '../model/storeModel/cart.model';
 
 @Component({
   selector: 'detail',

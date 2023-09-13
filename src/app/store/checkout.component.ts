@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CartModel } from '../model/cart.model';
-import { Order } from '../model/order.model';
+import { CartModel } from '../model/storeModel/cart.model';
+import { Order } from '../model/storeModel/order.model';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
