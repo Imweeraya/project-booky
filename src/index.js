@@ -32,8 +32,7 @@ app.get('/api/booky/GetProduct', (request, response) => {
 app.post('/api/booky/ADDProduct',multer().none(), (request, response) => {
     database.collection("product").count({},function(error,numOfDocs){
         database.collection("product").insertOne({
-            id:(numOfDocs+1).toString(),
-            description:request.body.newProducts
+            id:(numOfDocs+1).toString()
         });
         response.json("Added Succesfully");
     })
