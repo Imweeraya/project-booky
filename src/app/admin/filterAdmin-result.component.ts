@@ -30,8 +30,30 @@ export class FilterAdmin {
 
 
   get products(): Product[] {
-    return this.repository.filterProductByName(this.productDataService.getFilterKey());
+    let pageIndex = (this.selectedPage - 1) * this.productsPerPage;
+  
+    // Get the initial list of products based on the selected category or genre
+    let productList: Product[] = [];
+    if (this.selectedCategory === 'all') {
+      productList = this.repository.getAllProducts();
+    } else if (this.selectedgenre === 'all') {
+      productList = this.repository.getProductsCategory(this.selectedCategory);
+    } else {
+      productList = this.repository.getProductsGenre(this.selectedgenre);
+    }
+  
+    // Filter the products by name
+    const filterKey = this.productDataService.getFilterKey();
+    if (filterKey) {
+      productList = productList.filter(product => product.name?.includes(filterKey));
+    }
+  
+    // Apply pagination
+    const paginatedProducts = productList.slice(pageIndex, pageIndex + this.productsPerPage);
+  
+    return paginatedProducts;
   }
+  
 
   setID(productId?: number) {
     this.productID = productId !== undefined ? productId : 0; // Check for undefined
