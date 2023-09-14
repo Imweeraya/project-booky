@@ -72,20 +72,25 @@ export class FilterAdmin {
   get pageNumbers(): number[] {
     let totalProducts: Product[];
 
-    if (this.selectedgenre === 'all') {
-      totalProducts = this.repository.getProductsCategory(
-        this.selectedCategory
-      );
-    } else {
-      totalProducts = this.repository.getProductsGenre(this.selectedgenre);
+    if (this.selectedCategory === 'all') {
+        totalProducts = this.repository.getAllProducts();
+      } else {
+        if (this.selectedgenre === 'all') {
+          totalProducts = this.repository.getProductsCategory(
+            this.selectedCategory
+          );
+        } else {
+          totalProducts = this.repository.getProductsGenre(this.selectedgenre);
+        }
     }
-
+    
     const totalPages = Math.ceil(totalProducts.length / this.productsPerPage);
     console.log('Total pages:', totalPages);
     return Array(totalPages)
       .fill(0)
       .map((x, i) => i + 1);
   }
+
 
   onChange() {
     const arr = this.selectedValue.split(",");

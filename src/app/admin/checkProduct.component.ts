@@ -13,7 +13,7 @@ export class CheckProduct {
   productsPerPage: number;
   selectedPage: number;
   productID: number;
-  selectedValue = "all,all"
+  selectedValue = 'all,all';
 
   constructor(
     private productDataService: ProductDataService,
@@ -21,17 +21,17 @@ export class CheckProduct {
   ) {
     this.productID = 0;
     this.selectedPage = 1;
-    this.productsPerPage = 10;
+    this.productsPerPage = 5;
     this.selectedgenre = 'all';
     this.selectedCategory = 'all';
   }
 
   onChange() {
-    const arr = this.selectedValue.split(",");
+    const arr = this.selectedValue.split(',');
     this.selectedCategory = arr[0];
     this.selectedgenre = arr[1];
-    if(arr[1] === "จิตวิทยา"){
-      console.log("1");
+    if (arr[1] === 'จิตวิทยา') {
+      console.log('1');
     }
     this.selectedPage = 1;
   }
@@ -58,12 +58,16 @@ export class CheckProduct {
   get pageNumbers(): number[] {
     let totalProducts: Product[];
 
-    if (this.selectedgenre === 'all') {
-      totalProducts = this.repository.getProductsCategory(
-        this.selectedCategory
-      );
+    if (this.selectedCategory === 'all') {
+      totalProducts = this.repository.getAllProducts();
     } else {
-      totalProducts = this.repository.getProductsGenre(this.selectedgenre);
+      if (this.selectedgenre === 'all') {
+        totalProducts = this.repository.getProductsCategory(
+          this.selectedCategory
+        );
+      } else {
+        totalProducts = this.repository.getProductsGenre(this.selectedgenre);
+      }
     }
 
     const totalPages = Math.ceil(totalProducts.length / this.productsPerPage);
@@ -81,6 +85,4 @@ export class CheckProduct {
   setkeyword(key: string) {
     this.productDataService.setFilterKey(key);
   }
-
-  
 }
