@@ -4,10 +4,10 @@ import { Product } from '../model/storeModel/product.model';
 import { ProductDataService } from '../product-data.service';
 
 @Component({
-  selector: 'art-page',
-  templateUrl: './artpage.component.html',
+  selector: 'gift-page',
+  templateUrl: './giftpage.component.html',
 })
-export class Artpage {
+export class Giftpage {
   selectedCategory: string;
   selectedgenre: string;
   productsPerPage: number;
@@ -22,7 +22,7 @@ export class Artpage {
     this.selectedPage = 1;
     this.productsPerPage = 8;
     this.selectedgenre = 'all';
-    this.selectedCategory = 'ศิลปะและงานฝีมือ';
+    this.selectedCategory = 'ของเล่น & ของขวัญ';
   }
 
   get products(): Product[] {

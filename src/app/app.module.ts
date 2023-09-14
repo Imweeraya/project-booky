@@ -19,6 +19,9 @@ import { AdminLogin } from './admin/adminLogin.component';
 import { CheckProduct } from './admin/checkProduct.component';
 import { EditProduct } from './admin/editProduct.component';
 import { AddProduct } from './admin/addProduct.component';
+import { Artpage } from './store/artpage.component';
+import { Gatjetpage } from './store/gatjetpage.component';
+import { Giftpage } from './store/giftpage.component';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import { AddProduct } from './admin/addProduct.component';
     RouterModule.forRoot([
     { path: 'booky', component: HomeComponent },
     {path: 'booky-book' , component: Bookpage},
+    { path: 'booky-art', component: Artpage },
+    { path: 'booky-gatjet', component:  Gatjetpage },
+    { path: 'booky-gift', component:  Giftpage },
     { path: 'detail', component: Detail },
     { path: 'cart', component: Cart },
     { path: 'checkout', component: Checkout },

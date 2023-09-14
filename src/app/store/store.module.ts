@@ -15,6 +15,11 @@ import { Checkout } from './checkout.component';
 import { Cart } from './cart.component';
 import { ModelModule } from '../model/model.module';
 import { Filter } from './filter-result.component';
+import { Artpage } from './artpage.component';
+import { Gatjetpage } from './gatjetpage.component';
+import { Giftpage } from './giftpage.component';
+
+
 
 
 
@@ -30,7 +35,10 @@ import { Filter } from './filter-result.component';
     Detail,
     Checkout,
     Cart,
-    Filter
+    Filter,
+    Artpage,
+    Gatjetpage,
+    Giftpage
   ],
   exports: [],
 })
