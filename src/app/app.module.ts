@@ -22,6 +22,7 @@ import { AddProduct } from './admin/addProduct.component';
 import { Artpage } from './store/artpage.component';
 import { Gatjetpage } from './store/gatjetpage.component';
 import { Giftpage } from './store/giftpage.component';
+import { FilterAdmin } from './admin/filterAdmin-result.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { Giftpage } from './store/giftpage.component';
     { path: 'check-product', component: CheckProduct },
     { path: 'edit-product', component: EditProduct },
     { path: 'add-product', component: AddProduct },
+    { path: 'filter-admin', component:FilterAdmin },
     { path: '**', redirectTo: '/booky' },
     
   ]),

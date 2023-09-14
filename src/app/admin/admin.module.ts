@@ -9,6 +9,7 @@ import { AdminLogin } from './adminLogin.component';
 import { CheckProduct } from './checkProduct.component';
 import { EditProduct } from './editProduct.component';
 import { AddProduct } from './addProduct.component';
+import { FilterAdmin } from './filterAdmin-result.component';
 
 @NgModule({
     imports: [ ModelModule,BrowserModule, FormsModule, RouterModule],
@@ -17,7 +18,8 @@ import { AddProduct } from './addProduct.component';
       AdminLogin,
       CheckProduct,
       EditProduct,
-      AddProduct
+      AddProduct,
+      FilterAdmin
 
     ],
     exports: [],

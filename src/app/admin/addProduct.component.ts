@@ -5,11 +5,19 @@ import { Component } from '@angular/core';
   templateUrl: './addProduct.component.html',
 })
 export class AddProduct {
-  selectedValue: string = '';
+  selectedValue: string
+  selectedCatagory: string;
+  selectedGenre: string;
+  
 
 
   constructor() {
+    this.selectedValue = '';
+    this.selectedCatagory = '';
+    this.selectedGenre = '';
   }
+
+
 
 
 }
