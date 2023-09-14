@@ -5,5 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './addProduct.component.html',
 })
 export class AddProduct {
-    
+  selectedValue: string = '';
+
+
+  constructor() {
+  }
+
+
 }

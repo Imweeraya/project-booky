@@ -36,14 +36,39 @@
 
         <!-- Product Catagory -->
         <div class="mb-3">
-          <label class="form-label">ประเภทสินค้า :</label>
-          <input type="text" id="" class="form-control" required />
-        </div>
+          <label class="form-label">ประเภท และ หมวดหมู่สินค้า :</label>
+          <select
+            id="product-category"
+            class="form-select"
+            required
+          >
+          <option disabled selected>กรุณาเลือกประเภท และ หมวดหมู่สินค้า</option>
+          <optgroup label="0 หนังสือ">
+            <option value="หนังสือ,จิตวิทยา">01 จิตวิทยา</option>
+            <option value="หนังสือ,งานอดิเรก">02 งานอดิเรก</option>
+            <option value="หนังสือ,การ์ตูน มังงะ">03 การ์ตูน มังงะ</option>
+            <option value="หนังสือ,เตรียมสอบ">04 เตรียมสอบ</option>
+            <option value="หนังสือ,เด็ก">05 เด็ก</option>
+          </optgroup>
 
-        <!-- Product Genre -->
-        <div class="mb-3">
-          <label class="form-label">หมวดหมู่สินค้า :</label>
-          <input type="text" id="" class="form-control" required />
+          <optgroup label="1 ศิลปะและงานฝีมือ">
+            <option value="ศิลปะและงานฝีมือ,อุปกรณ์วาดรูป">11 อุปกรณ์วาดรูป</option>
+            <option value="ศิลปะและงานฝีมือ,แฟ้ม ซองพัสดุ">12 แฟ้ม ซองพัสดุ</option>
+            <option value="ศิลปะและงานฝีมือ,เครื่องเขียน">13 เครื่องเขียน</option>
+            <option value="ศิลปะและงานฝีมือ,เทปกาว">14 เทปกาว</option>
+          </optgroup>
+
+          <optgroup label="2 ไอที & แก็ตเจ็ต">
+            <option value="ไอที & แก็ตเจ็ต,คีย์บอร์ด">21 คีย์บอร์ด</option>
+            <option value="ไอที & แก็ตเจ็ต,เม้าส์">22 เม้าส์</option>
+            <option value="ไอที & แก็ตเจ็ต,หูฟัง">23 หูฟัง</option>
+          </optgroup>
+
+          <optgroup label="3 ของเล่น & ของขวัญ">
+            <option value="ของเล่น & ของขวัญ,ของเล่น">31 ของเล่น</option>
+            <option value="ของเล่น & ของขวัญ,แฟชั่น">32 แฟชั่น</option>
+          </optgroup>
+          </select>
         </div>
 
         <!-- Product info -->
