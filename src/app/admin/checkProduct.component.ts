@@ -21,7 +21,7 @@ export class CheckProduct {
   ) {
     this.productID = 0;
     this.selectedPage = 1;
-    this.productsPerPage = 5;
+    this.productsPerPage = 10;
     this.selectedgenre = 'all';
     this.selectedCategory = 'all';
   }
@@ -30,9 +30,6 @@ export class CheckProduct {
     const arr = this.selectedValue.split(',');
     this.selectedCategory = arr[0];
     this.selectedgenre = arr[1];
-    if (arr[1] === 'จิตวิทยา') {
-      console.log('1');
-    }
     this.selectedPage = 1;
   }
 

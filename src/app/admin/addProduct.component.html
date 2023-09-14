@@ -15,20 +15,24 @@
 
   <body>
     <nav-admin></nav-admin>
+
     <div class="container my-5">
       <h1 class="mb-5"><i class="fa-solid fa-circle-plus"></i> เพิ่มสินค้า</h1>
 
-      <form action="process_edit_product.php" method="post">
+
         <!-- Product Name -->
         <div class="mb-3">
           <label class="form-label">ชื่อสินค้า:</label>
-          <input type="text" id="productName" class="form-control" required />
+          <input type="text" id="productName" class="form-control" required [(ngModel)]="productName"/>
         </div>
 
         <!-- Product Rate -->
         <div class="mb-3">
           <label class="form-label">ความนิยมสินค้า (0-5) :</label>
-          <input type="number" id="" class="form-control" required />
+          <input type="number" id="" class="form-control" required 
+          [min]="1"
+          [max]="5" 
+          [(ngModel)]="productRate"/>
         </div>
 
         <!-- Product Catagory And Genre -->
@@ -36,6 +40,7 @@
           <label class="form-label">ประเภท และ หมวดหมู่สินค้า :</label>
           <select
             [(ngModel)]="selectedValue"
+            (change)="onChange()"
             id="product-category"
             class="form-select"
             required
@@ -80,6 +85,7 @@
             id="info"
             class="form-control"
             required
+            [(ngModel)]="productInfo"
           ></textarea>
         </div>
 
@@ -92,7 +98,7 @@
             >
             :</label
           >
-          <input type="text" id="" class="form-control" required />
+          <input type="text" id="" class="form-control" required [(ngModel)]="imgLink"/>
         </div>
 
         <!-- Product Quantity -->
@@ -102,7 +108,9 @@
             type="number"
             id="productQuantity"
             class="form-control"
-            required
+            required 
+            [(ngModel)]="productQuantity"
+            [min]="1"
           />
         </div>
 
@@ -115,12 +123,14 @@
             class="form-control"
             step="0.01"
             required
+            [(ngModel)]="productPrice"
+            [min]="1"
           />
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">ยืนยัน</button>
-      </form>
+        <button (click)="onSubmit()" type="submit" class="btn btn-primary">ยืนยัน</button>
+      
     </div>
 
     <!-- Include Bootstrap JS if needed -->
