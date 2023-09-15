@@ -22,4 +22,9 @@ export class ApiService {
     });
   }
 
+  updateProductData(productId: string, updatedProductData: Product): Observable<any>{
+    const updateUrl = `${this.apiUrl}/updateProduct/${productId}`;
+    return this.http.put(updateUrl, updatedProductData);
+  }
+
 }

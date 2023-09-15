@@ -167,17 +167,21 @@
 
             <div class="col-md-3 col-lg-3 col-xl-3 detail">
               <p class="lead fw-normal mb-2">
-                {{ product.name }}
+                รหัสสินค้า : {{ product.id }}
+              </p>
+              <p class="lead fw-normal mb-2">
+                ชื่อ : {{ product.name }}
               </p>
               <p class="lead fw-normal mb-2">คลัง : {{ product.stock }}</p>
               <p class="lead fw-normal mb-2">ราคา: ฿ {{ product.price }}</p>
 
               <div class="row d-flex justify-content-end align-items-center">
                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                  <button class="btn btn-primary" routerLink="/edit-product">
+                  <button class="btn btn-primary" routerLink="/edit-product" (click)="setID(product.id)">
                     แก้ไข <i class="fa-solid fa-pen-to-square"></i>
                   </button>
                 </div>
+                
 
                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                   <button class="btn btn-danger" (click)="DeleteProduct(product.id)">

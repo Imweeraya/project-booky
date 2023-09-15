@@ -88,6 +88,11 @@ export class CheckProduct {
     this.productDataService.setFilterKey(key);
   }
 
+  setID(productId?: number) {
+    this.productID = productId !== undefined ? productId : 0; // Check for undefined
+    this.productDataService.setProductId(this.productID); // Call the setProductId method with the value
+  }
+
 
   DeleteProduct(id: any){
     Swal.fire({

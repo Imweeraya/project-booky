@@ -94,3 +94,39 @@ app.delete("/api/booky/DeleteProduct/:id", (request, response) => {
 });
 
 
+app.put("/api/booky/updateProduct/:productId", (request, response) => {
+  const productId = request.params.productId;
+  const updatedProductData = {
+    name: request.body.name || "",
+    rate: request.body.rate || 0,
+    category: request.body.category || "",
+    genre: request.body.genre || "",
+    info: request.body.info || "",
+    img: request.body.img || [],
+    stock: request.body.stock || 0,
+    price: request.body.price || 0,
+  };
+
+  // Filter out fields with default values
+  const filteredProductData = Object.keys(updatedProductData).reduce((acc, key) => {
+    if (updatedProductData[key] !== "" && updatedProductData[key] !== 0) {
+      acc[key] = updatedProductData[key];
+    }
+    return acc;
+  }, {});
+
+  database.collection("product").updateOne({ id: productId }, { $set: filteredProductData }, (error, result) => {
+    if (error) {
+      // Handle the error
+      response.status(500).json({ error: "Internal Server Error" });
+    } else if (result.matchedCount === 0) {
+      // Product with the specified ID was not found
+      response.status(404).json({ error: "Product not found" });
+    } else {
+      response.json("Updated Successfully");
+    }
+  });
+});
+
+
+
