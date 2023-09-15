@@ -3,6 +3,7 @@ import { Product } from '../model/storeModel/product.model';
 import { ApiService } from 'src/api.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'add-product',
@@ -22,6 +23,8 @@ export class AddProduct {
 
   imgLink: string;
   selectedValue: string;
+
+  submitted: boolean = false;
 
   constructor(private apiService: ApiService, private router: Router) {
     this.productName = '';
@@ -50,41 +53,47 @@ export class AddProduct {
     }
   }
 
-  onSubmit() {
-    Swal.fire({
-      title: 'คุณต้องการเพิ่มสินค้านี้หรือไม่',
-      text: 'กรุณาตรวจสอบความถูกต้องของข้อมูลให้ครบถ้วนก่อนกดยืนยัน',
-      imageUrl:
-        'https://storage.googleapis.com/sticker-prod/sX90U4BNjjsjvGRuqTnk/9-2.thumb128.png',
-      imageHeight: 100,
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      cancelButtonText: 'ยกเลิก',
-      confirmButtonText: 'ยืนยัน',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.img();
-        this.product.name = this.productName;
-        this.product.rate = this.productRate;
-        this.product.category = this.selectedCategory;
-        this.product.genre = this.selectedGenre;
-        this.product.info = this.productInfo;
-        this.product.img = this.productImage;
-        this.product.stock = this.productQuantity;
-        this.product.price = this.productPrice;
-        this.apiService.postProductData(this.product).subscribe((response) => {
-          console.log('Data sent successfully:', response);
-          Swal.fire({
-            title: 'เพิ่มสินค้าแล้วค้าแล้ว!',
-            text: 'รีเฟรชเพื่อตรวจสอบสินค้า BoOkY ♡',
-            imageUrl:
-              'https://storage.googleapis.com/sticker-prod/sX90U4BNjjsjvGRuqTnk/4-2.thumb128.png',
-            imageHeight: 100,
-          });
-        });
-        this.router.navigateByUrl('/check-product');
-      }
-    });
+  onSubmit(form: NgForm) {
+    this.submitted = true;
+    if (form.valid) {
+      Swal.fire({
+        title: 'คุณต้องการเพิ่มสินค้านี้หรือไม่',
+        text: 'กรุณาตรวจสอบความถูกต้องของข้อมูลให้ครบถ้วนก่อนกดยืนยัน',
+        imageUrl:
+          'https://storage.googleapis.com/sticker-prod/sX90U4BNjjsjvGRuqTnk/9-2.thumb128.png',
+        imageHeight: 100,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'ยกเลิก',
+        confirmButtonText: 'ยืนยัน',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.submitted = false;
+          this.img();
+          this.product.name = this.productName;
+          this.product.rate = this.productRate;
+          this.product.category = this.selectedCategory;
+          this.product.genre = this.selectedGenre;
+          this.product.info = this.productInfo;
+          this.product.img = this.productImage;
+          this.product.stock = this.productQuantity;
+          this.product.price = this.productPrice;
+          this.apiService
+            .postProductData(this.product)
+            .subscribe((response) => {
+              console.log('Data sent successfully:', response);
+              Swal.fire({
+                title: 'เพิ่มสินค้าแล้วค้าแล้ว!',
+                text: 'รีเฟรชเพื่อตรวจสอบสินค้า BoOkY ♡',
+                imageUrl:
+                  'https://storage.googleapis.com/sticker-prod/sX90U4BNjjsjvGRuqTnk/4-2.thumb128.png',
+                imageHeight: 100,
+              });
+            });
+          this.router.navigateByUrl('/check-product');
+        }
+      });
+    }
   }
 }
