@@ -84,7 +84,7 @@ export class AddProduct {
             .subscribe((response) => {
               console.log('Data sent successfully:', response);
               Swal.fire({
-                title: 'เพิ่มสินค้าแล้วค้าแล้ว!',
+                title: 'เพิ่มสินค้าแล้ว!',
                 text: 'รีเฟรชเพื่อตรวจสอบสินค้า BoOkY ♡',
                 imageUrl:
                   'https://storage.googleapis.com/sticker-prod/sX90U4BNjjsjvGRuqTnk/4-2.thumb128.png',

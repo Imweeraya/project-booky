@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ProductDataService } from '../product-data.service';
 import { ProductRepository } from '../model/storeModel/product.repository';
 import { Product } from '../model/storeModel/product.model';
+import Swal from 'sweetalert2';
+import { ApiService } from 'src/api.service';
 
 @Component({
   selector: 'check-product',
@@ -15,9 +17,12 @@ export class CheckProduct {
   productID: number;
   selectedValue = 'all,all';
 
+  delID: number=0;
+
   constructor(
     private productDataService: ProductDataService,
-    private repository: ProductRepository
+    private repository: ProductRepository,
+    private apiService: ApiService
   ) {
     this.productID = 0;
     this.selectedPage = 1;
@@ -82,4 +87,28 @@ export class CheckProduct {
   setkeyword(key: string) {
     this.productDataService.setFilterKey(key);
   }
+
+
+  DeleteProduct(id: any){
+    Swal.fire({
+      title: 'ลบสินค้า',
+      text: "คุณต้องการลบสินค้านี้หรือไม่?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'ยกเลิก',
+      confirmButtonText: 'ยืนยัน',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        id = id.toString();
+        this.apiService.deleteProductByID(id);
+        Swal.fire('ลบสินค้าแล้ว!', 'รีเฟรชเพื่อตรวจสอบสินค้า', 'success');
+      }
+    });
+  }
+
+
+
+
 }
