@@ -77,9 +77,20 @@ function generateUniqueId() {
   return `${timestamp}-${random}`;
 }
 
-app.delete("/api/booky/DeleteProduct", (request, response) => {
-  database.collection("prosuct").deleteOne({
-    id: request.query.id,
-  });
-  response.json("Delete Successfully");
+app.delete("/api/booky/DeleteProduct/:id", (request, response) => {
+  const productId = request.params.id;
+  
+  database.collection("product").deleteOne(
+    { id: productId },
+    (err, result) => {
+      if (err) {
+        console.error("Error deleting product:", err);
+        response.status(500).json({ error: "Failed to delete product" });
+      } else {
+        response.json("Delete Successfully");
+      }
+    }
+  );
 });
+
+

@@ -17,4 +17,10 @@ export class ApiService {
   }
 
 
+  deleteProductByID(id:any){
+    this.http.delete(`${this.apiUrl}/DeleteProduct/${id}`).subscribe(data=>{
+      alert(data);
+    });
+  }
+
 }
