@@ -66,13 +66,13 @@ export class EditProduct {
     }
   }
 
-  imgTolink(){
+  imgTolink() {
     const link: string = this.productImage.join(', ');
     return link;
   }
 
-  selectCatagoryGenre(){
-    const selected: string = this.selectedCategory+","+this.selectedGenre;
+  selectCatagoryGenre() {
+    const selected: string = this.selectedCategory + ',' + this.selectedGenre;
     return selected;
   }
 
@@ -104,18 +104,17 @@ export class EditProduct {
           this.product.price = this.productPrice;
 
           const proID = this.product.id?.toString() || '';
-          this.apiService
-            .updateProductData(proID, this.product)
-            .subscribe((response) => {
-              console.log('Data sent successfully:', response);
-              Swal.fire({
-                title: 'แก้ไขสินค้าแล้ว!',
-                text: 'รีเฟรชเพื่อตรวจสอบสินค้า BoOkY ♡',
-                imageUrl:
-                  'https://storage.googleapis.com/sticker-prod/sX90U4BNjjsjvGRuqTnk/4-2.thumb128.png',
-                imageHeight: 100,
-              });
-            });
+          this.apiService.updateProductData(proID, this.product);
+
+          console.log('Data sent successfully:');
+          Swal.fire({
+            title: 'แก้ไขสินค้าแล้ว!',
+            text: 'รีเฟรชเพื่อตรวจสอบสินค้า BoOkY ♡',
+            imageUrl:
+              'https://storage.googleapis.com/sticker-prod/sX90U4BNjjsjvGRuqTnk/4-2.thumb128.png',
+            imageHeight: 100,
+          });
+
           this.router.navigateByUrl('/check-product');
         }
       });

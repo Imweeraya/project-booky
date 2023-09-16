@@ -10,9 +10,11 @@ export class HomeComponent {
 
   // Define an array of image paths
   imagePaths: string[] = [
-    '../assets/img/cat1.jpg',
-    '../assets/img/cat2.jpg',
-    '../assets/img/cat3.jpg',
+    '../assets/img/Booky1.png',
+    '../assets/img/Booky2.png',
+    '../assets/img/Booky3.png',
+    '../assets/img/Booky4.png',
+    '../assets/img/Booky5.png'
   ];
 
   change_img_plus() {
