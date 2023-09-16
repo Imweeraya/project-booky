@@ -8,204 +8,206 @@
       max-height: 200px;
     }
 
-    h1{
-        color: #283b95;
+    h1 {
+      color: #283b95;
     }
   </style>
 
   <body>
     <nav-admin></nav-admin>
     <div class="container my-5">
-      <h1 class="mb-5"><i class="fa-solid fa-pen-to-square"></i> แก้ไขสินค้า </h1>
+      <h1 class="mb-5">
+        <i class="fa-solid fa-pen-to-square"></i> แก้ไขสินค้า
+      </h1>
 
       <div class="mb-3">
-        <label class="form-label">รหัสสินค้า : {{product.id}}</label>
-      </div>
-   
-        <form #AddForm="ngForm" (ngSubmit)="onSubmit(AddForm)">
-          <!-- Product Name -->
-          <div class="mb-3">
-            <label class="form-label">ชื่อสินค้า:</label>
-            <input
-              type="text"
-              id="productName"
-              class="form-control"
-              required
-              [(ngModel)]="productName"
-              name="pName"
-            />
-            <div
-              *ngIf="submitted && AddForm.controls['pName'].invalid"
-              class="text-danger"
-            >
-              <div class="text-danger">กรุณากรอกชื่อสินค้า</div>
-            </div>
-          </div>
-  
-          <!-- Product Rate -->
-          <div class="mb-3">
-            <label class="form-label">ความนิยมสินค้า (0-5) :</label>
-            <input
-              type="number"
-              id=""
-              class="form-control"
-              required
-              [min]="1"
-              [max]="5"
-              [(ngModel)]="productRate"
-              name="pRate"
-            />
-            <div
-              *ngIf="submitted && AddForm.controls['pRate'].invalid"
-              class="text-danger"
-            >
-              <div class="text-danger">กรุณากรอกความนิยมสินค้า</div>
-            </div>
-          </div>
-  
-          <!-- Product Catagory And Genre -->
-          <div class="mb-3">
-            <label class="form-label">ประเภท และ หมวดหมู่สินค้า :</label>
-            <select
-              [(ngModel)]="selectedValue"
-              name="pValue"
-              (change)="onChange()"
-              id="product-category"
-              class="form-select"
-              required
-            >
-              <option disabled selected>
-                กรุณาเลือกประเภท และ หมวดหมู่สินค้า
-              </option>
-              <optgroup label="0 หนังสือ">
-                <option value="หนังสือ,จิตวิทยา">01 จิตวิทยา</option>
-                <option value="หนังสือ,งานอดิเรก">02 งานอดิเรก</option>
-                <option value="หนังสือ,การ์ตูน มังงะ">03 การ์ตูน มังงะ</option>
-                <option value="หนังสือ,เตรียมสอบ">04 เตรียมสอบ</option>
-                <option value="หนังสือ,เด็ก">05 เด็ก</option>
-              </optgroup>
-  
-              <optgroup label="1 ศิลปะและงานฝีมือ">
-                <option value="ศิลปะและงานฝีมือ,อุปกรณ์วาดรูป">
-                  11 อุปกรณ์วาดรูป
-                </option>
-                <option value="ศิลปะและงานฝีมือ,แฟ้ม ซองพัสดุ">
-                  12 แฟ้ม ซองพัสดุ
-                </option>
-                <option value="ศิลปะและงานฝีมือ,เครื่องเขียน">
-                  13 เครื่องเขียน
-                </option>
-                <option value="ศิลปะและงานฝีมือ,เทปกาว">14 เทปกาว</option>
-              </optgroup>
-  
-              <optgroup label="2 ไอที & แก็ตเจ็ต">
-                <option value="ไอที & แก็ตเจ็ต,คีย์บอร์ด">21 คีย์บอร์ด</option>
-                <option value="ไอที & แก็ตเจ็ต,เม้าส์">22 เม้าส์</option>
-                <option value="ไอที & แก็ตเจ็ต,หูฟัง">23 หูฟัง</option>
-              </optgroup>
-  
-              <optgroup label="3 ของเล่น & ของขวัญ">
-                <option value="ของเล่น & ของขวัญ,ของเล่น">31 ของเล่น</option>
-                <option value="ของเล่น & ของขวัญ,แฟชั่น">32 แฟชั่น</option>
-              </optgroup>
-            </select>
-            <div
-              *ngIf="submitted && AddForm.controls['pValue'].invalid"
-              class="text-danger"
-            >
-              <div class="text-danger">กรุณาเลือกประเภท และ หมวดหมู่สินค้า</div>
-            </div>
-          </div>
-  
-          <!-- Product info -->
-          <div class="mb-3">
-            <label class="form-label">รายละเอียดสินค้า :</label>
-            <textarea
-              type="text"
-              id="info"
-              class="form-control"
-              required
-              [(ngModel)]="productInfo"
-              name="pInfo"
-            ></textarea>
-            <div
-              *ngIf="submitted && AddForm.controls['pInfo'].invalid"
-              class="text-danger"
-            >
-              <div class="text-danger">กรุณากรอกรายละเอียดสินค้า</div>
-            </div>
-          </div>
-  
-          <!-- Product img -->
-          <div class="mb-3">
-            <label class="form-label"
-              >ลิงค์รูปภาพสินค้า
-              <span class="text-muted"
-                >[ หากมีมากกว่า 1 ภาพ ใช้ ( , ) คั่นระหว่างลิงค์ ]</span
-              >
-              :</label
-            >
-            <input
-              type="text"
-              id=""
-              class="form-control"
-              required
-              [(ngModel)]="imgLink"
-              name="pImgLink"
-            />
-            <div
-              *ngIf="submitted && AddForm.controls['pImgLink'].invalid"
-              class="text-danger"
-            >
-              <div class="text-danger">กรุณากรอกลิงค์รูปภาพสินค้า</div>
-            </div>
-          </div>
-  
-          <!-- Product Quantity -->
-          <div class="mb-3">
-            <label class="form-label">คลัง:</label>
-            <input
-              type="number"
-              id="productQuantity"
-              class="form-control"
-              required
-              [(ngModel)]="productQuantity"
-              [min]="1"
-              name="pQuantity"
-            />
-            <div
-              *ngIf="submitted && AddForm.controls['pQuantity'].invalid"
-              class="text-danger"
-            >
-              <div class="text-danger">กรุณากรอกคลังสินค้า</div>
-            </div>
-          </div>
-  
-          <!-- Product Price -->
-          <div class="mb-3">
-            <label class="form-label">ราคาสินค้า:</label>
-            <input
-              type="number"
-              id="productPrice"
-              class="form-control"
-              step="0.01"
-              required
-              [(ngModel)]="productPrice"
-              [min]="1"
-              name="pPrice"
-            />
-            <div
-              *ngIf="submitted && AddForm.controls['pPrice'].invalid"
-              class="text-danger"
-            >
-              <div class="text-danger">กรุณากรอกราคาสินค้า</div>
-            </div>
-          </div>
-  
-          <!-- Submit Button -->
-          <button type="submit" class="btn btn-primary">ยืนยัน</button>
-        </form>
+        <label class="form-label">รหัสสินค้า : {{ product.id }}</label>
       </div>
 
+      <form #AddForm="ngForm" (ngSubmit)="onSubmit(AddForm)">
+        <!-- Product Name -->
+        <div class="mb-3">
+          <label class="form-label">ชื่อสินค้า:</label>
+          <input
+            type="text"
+            id="productName"
+            class="form-control"
+            required
+            [(ngModel)]="productName"
+            name="pName"
+          />
+          <div
+            *ngIf="submitted && AddForm.controls['pName'].invalid"
+            class="text-danger"
+          >
+            <div class="text-danger">กรุณากรอกชื่อสินค้า</div>
+          </div>
+        </div>
+
+        <!-- Product Rate -->
+        <div class="mb-3">
+          <label class="form-label">ความนิยมสินค้า (0-5) :</label>
+          <input
+            type="number"
+            id=""
+            class="form-control"
+            required
+            [min]="1"
+            [max]="5"
+            [(ngModel)]="productRate"
+            name="pRate"
+          />
+          <div
+            *ngIf="submitted && AddForm.controls['pRate'].invalid"
+            class="text-danger"
+          >
+            <div class="text-danger">กรุณากรอกความนิยมสินค้า</div>
+          </div>
+        </div>
+
+        <!-- Product Catagory And Genre -->
+        <div class="mb-3">
+          <label class="form-label">ประเภท และ หมวดหมู่สินค้า :</label>
+          <select
+            [(ngModel)]="selectedValue"
+            name="pValue"
+            (change)="onChange()"
+            id="product-category"
+            class="form-select"
+            required
+          >
+            <option disabled selected>
+              กรุณาเลือกประเภท และ หมวดหมู่สินค้า
+            </option>
+            <optgroup label="0 หนังสือ">
+              <option value="หนังสือ,จิตวิทยา">01 จิตวิทยา</option>
+              <option value="หนังสือ,งานอดิเรก">02 งานอดิเรก</option>
+              <option value="หนังสือ,การ์ตูน มังงะ">03 การ์ตูน มังงะ</option>
+              <option value="หนังสือ,เตรียมสอบ">04 เตรียมสอบ</option>
+              <option value="หนังสือ,เด็ก">05 เด็ก</option>
+            </optgroup>
+
+            <optgroup label="1 ศิลปะและงานฝีมือ">
+              <option value="ศิลปะและงานฝีมือ,อุปกรณ์วาดรูป">
+                11 อุปกรณ์วาดรูป
+              </option>
+              <option value="ศิลปะและงานฝีมือ,แฟ้ม ซองพัสดุ">
+                12 แฟ้ม ซองพัสดุ
+              </option>
+              <option value="ศิลปะและงานฝีมือ,เครื่องเขียน">
+                13 เครื่องเขียน
+              </option>
+              <option value="ศิลปะและงานฝีมือ,เทปกาว">14 เทปกาว</option>
+            </optgroup>
+
+            <optgroup label="2 ไอที & แก็ตเจ็ต">
+              <option value="ไอที & แก็ตเจ็ต,คีย์บอร์ด">21 คีย์บอร์ด</option>
+              <option value="ไอที & แก็ตเจ็ต,เม้าส์">22 เม้าส์</option>
+              <option value="ไอที & แก็ตเจ็ต,หูฟัง">23 หูฟัง</option>
+            </optgroup>
+
+            <optgroup label="3 ของเล่น & ของขวัญ">
+              <option value="ของเล่น & ของขวัญ,ของเล่น">31 ของเล่น</option>
+              <option value="ของเล่น & ของขวัญ,แฟชั่น">32 แฟชั่น</option>
+            </optgroup>
+          </select>
+          <div
+            *ngIf="submitted && AddForm.controls['pValue'].invalid"
+            class="text-danger"
+          >
+            <div class="text-danger">กรุณาเลือกประเภท และ หมวดหมู่สินค้า</div>
+          </div>
+        </div>
+
+        <!-- Product info -->
+        <div class="mb-3">
+          <label class="form-label">รายละเอียดสินค้า :</label>
+          <textarea
+            type="text"
+            id="info"
+            class="form-control"
+            required
+            [(ngModel)]="productInfo"
+            name="pInfo"
+          ></textarea>
+          <div
+            *ngIf="submitted && AddForm.controls['pInfo'].invalid"
+            class="text-danger"
+          >
+            <div class="text-danger">กรุณากรอกรายละเอียดสินค้า</div>
+          </div>
+        </div>
+
+        <!-- Product img -->
+        <div class="mb-3">
+          <label class="form-label"
+            >ลิงค์รูปภาพสินค้า
+            <span class="text-muted"
+              >[ หากมีมากกว่า 1 ภาพ ใช้ ( , ) คั่นระหว่างลิงค์ ]</span
+            >
+            :</label
+          >
+          <textarea
+            type="text"
+            id=""
+            class="form-control"
+            required
+            [(ngModel)]="imgLink"
+            name="pImgLink"
+          >
+          </textarea>
+          <div
+            *ngIf="submitted && AddForm.controls['pImgLink'].invalid"
+            class="text-danger"
+          >
+            <div class="text-danger">กรุณากรอกลิงค์รูปภาพสินค้า</div>
+          </div>
+        </div>
+
+        <!-- Product Quantity -->
+        <div class="mb-3">
+          <label class="form-label">คลัง:</label>
+          <input
+            type="number"
+            id="productQuantity"
+            class="form-control"
+            required
+            [(ngModel)]="productQuantity"
+            [min]="1"
+            name="pQuantity"
+          />
+          <div
+            *ngIf="submitted && AddForm.controls['pQuantity'].invalid"
+            class="text-danger"
+          >
+            <div class="text-danger">กรุณากรอกคลังสินค้า</div>
+          </div>
+        </div>
+
+        <!-- Product Price -->
+        <div class="mb-3">
+          <label class="form-label">ราคาสินค้า:</label>
+          <input
+            type="number"
+            id="productPrice"
+            class="form-control"
+            step="0.01"
+            required
+            [(ngModel)]="productPrice"
+            [min]="1"
+            name="pPrice"
+          />
+          <div
+            *ngIf="submitted && AddForm.controls['pPrice'].invalid"
+            class="text-danger"
+          >
+            <div class="text-danger">กรุณากรอกราคาสินค้า</div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">ยืนยัน</button>
+      </form>
+    </div>
   </body>
 </html>

@@ -142,14 +142,14 @@
             >
             :</label
           >
-          <input
+          <textarea
             type="text"
             id=""
             class="form-control"
             required
             [(ngModel)]="imgLink"
             name="pImgLink"
-          />
+          ></textarea>
           <div
             *ngIf="submitted && AddForm.controls['pImgLink'].invalid"
             class="text-danger"
